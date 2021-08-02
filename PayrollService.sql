@@ -11,4 +11,7 @@ startDate date
 );
 --------------UC3---------------
 insert into employee_payroll values('Anuja',24995,'2000-11-13'),('Meghana',88838,'2002-12-27')
-insert into employee_payroll (name,startDate,salary) values('Vindhya' ,'2003-03-22',34563)
+insert into employee_payroll (name,startDate,salary) values('Vindhya
+' ,'2003-03-22',34563)
+--------------UC4---------------
+select * from employee_payroll;
