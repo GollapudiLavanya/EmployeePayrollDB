@@ -56,7 +56,7 @@ PhoneNumber bigint,
 Address varchar(150) not null
 )
 Insert into employee values
-('Anuja','F',9494943537,'Mumbai'),('Meghana','M',6748399848,'Bangalore'),
+('Anuja','F',9494943537,'Mumbai'),('Meghana','F',6748399848,'Bangalore'),
 ('Vindhya','F',8989343478,'Chennai'),('Bill','M',7833829848,'Chennai'),
 ('Mark','M',8948373829,'Bangalore'),('Terissa','F',7878787878,'Mumbai');
 
@@ -90,3 +90,25 @@ Department varchar(150) not null,
 );
 Insert into employee_department values
 (1,'HR'),(2,'Sales and Marketing'),(3,'Sales and Marketing'),(4,'HR'),(5,'HR'),(6,'Sales and Marketing');
+--------------UC12---------------
+------------Retrieve All Tables-------------
+select * from employee_payroll;
+select * from employee;
+select * from payroll_details;
+select * from employee_department;
+
+--------------Aggregate Functions------------
+---Sum of Basic pay by gender---
+select emp.Gender,SUM(payroll.Basic_pay) AS TotalPay from payroll_details payroll
+inner join employee emp on payroll.Id=emp.EmployeeId group by Gender
+---Average of Basic pay by gender---
+select emp.Gender,AVG(payroll.Basic_pay) AS AveragePay from payroll_details payroll
+inner join employee emp on payroll.Id=emp.EmployeeId group by Gender
+---Count of employees by gender---
+select Gender,COUNT(Name) AS TotalCount from employee group by Gender
+---Minimum salary by gender--
+select Gender,MIN(payroll.Basic_pay) AS MinimumPay from payroll_details payroll
+inner join employee emp on payroll.Id=emp.EmployeeId group by Gender
+---Maximum salary by gender--
+select Gender,MAX(payroll.Basic_pay) AS MaximumPay from payroll_details payroll
+inner join employee emp on payroll.Id=emp.EmployeeId group by Gender
